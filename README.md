@@ -81,14 +81,14 @@ results.on('match', function(path){ console.log('found: '+path) })
 Cache cleaning and use for long running emitters
 ------------------------------------------------
 
-This is not recommended for use in long running event emitters as each
-event emitted data will get stored and might get quite large, i.e. a
-potential source for a leak.
+One of the dangers in using this in long running event emitters is _cache 
+buildup_ -- the data for each event emitted will get stored and this
+might get quite large, this, if not managed, is a potential memory leak.
 
 To deal with this issue a `.clearGuaranteedQueue(<event>)` method is 
-added to the emitter, this will clear the cache for a specific event and
-a shorthand form `.clearGuaranteedQueue('*')` that will clear the cache
-for all wrapped events.
+added to the emitter, this will clear the cache for a specific event. 
+This and has a shorthand form `.clearGuaranteedQueue('*')` that will 
+clear the cache for all wrapped events.
 
 So for the above example:
 ```javascript
