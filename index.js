@@ -12,17 +12,17 @@
 //		-> emitter
 //
 //
-// This will add a .clearGuarantedQueue(..) method to the emitter that 
+// This will add a .clearGuaranteedQueue(..) method to the emitter that 
 // will clear the event queue for a specific event.
 //
 // 	Clear event(s) queue(s)...
-// 	emitter.clearGuarantedQueue('event')
-// 	emitter.clearGuarantedQueue('eventA eventB ...')
-// 	emitter.clearGuarantedQueue(['eventA', 'eventB', ...])
+// 	emitter.clearGuaranteedQueue('event')
+// 	emitter.clearGuaranteedQueue('eventA eventB ...')
+// 	emitter.clearGuaranteedQueue(['eventA', 'eventB', ...])
 // 		-> emitter
 //
 // 	Clear all queues...
-// 	emitter.clearGuarantedQueue('*')
+// 	emitter.clearGuaranteedQueue('*')
 // 		-> emitter
 //
 //
@@ -35,8 +35,8 @@ function(names, emitter){
 	names = typeof(names) == typeof('str') ? names.split(/\s+/g) : names
 
 	// add ability to clear the queue...
-	if(emitter.clearGuarantedQueue == null){
-		emitter.clearGuarantedQueue = function(names){
+	if(emitter.clearGuaranteedQueue == null){
+		emitter.clearGuaranteedQueue = function(names){
 			names = names == '*' ? Object.keys(this._guaranteed_queue)
 				: typeof(names) == typeof('str') ? names.split(/\s+/g) 
 				: names
