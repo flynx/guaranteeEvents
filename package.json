@@ -1,0 +1,26 @@
+{
+  "name": "guaranteeEvents",
+  "version": "1.0.0",
+  "description": "Guarantee that every event handler gets every event...",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flynx/guaranteeEvents.git"
+  },
+  "keywords": [
+    "node.js",
+    "EventEmitter",
+    "utility",
+    "state",
+    "event"
+  ],
+  "author": "Alex A. Naanou <alex.nanou@gmail.com> (https://github.com/flynx)",
+  "license": "New BSD",
+  "bugs": {
+    "url": "https://github.com/flynx/guaranteeEvents/issues"
+  },
+  "homepage": "https://github.com/flynx/guaranteeEvents"
+}
