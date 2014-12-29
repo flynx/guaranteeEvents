@@ -18,7 +18,7 @@
     "event"
   ],
   "author": "Alex A. Naanou <alex.nanou@gmail.com> (https://github.com/flynx)",
-  "license": "New BSD",
+  "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/flynx/guaranteeEvents/issues"
   },
