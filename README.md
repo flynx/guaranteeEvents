@@ -11,7 +11,7 @@ will provide the following functionality:
 * Call new handlers of the specified event with each of the prior event
 data sets in order of event occurrence.
 
-* Add a `.clearGuaranteedQueue(<evetn>)` method to the emitter to facilitate
+* Add a `.clearGuaranteedQueue(<event>)` method to the emitter to facilitate
 event cache cleaning.
 
 This is useful for modules like [glob](https://github.com/isaacs/node-glob) 
