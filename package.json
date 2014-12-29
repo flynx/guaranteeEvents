@@ -1,5 +1,5 @@
 {
-  "name": "guaranteeEvents",
+  "name": "guarantee-events",
   "version": "1.0.0",
   "description": "Guarantee that every event handler gets every event...",
   "main": "index.js",
