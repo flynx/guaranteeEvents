@@ -4,6 +4,28 @@
 *
 **********************************************************************/
 
+// Clear event cache...
+//
+// This is added as a method to the emitter passed to guaranteeEvents(..)...
+//
+// NOTE: his has the same event names semantics as guaranteeEvents(..)
+// NOTE: for more info see docs for guaranteeEvents(..)
+function clearGuaranteedQueue(names){
+	names = names == '*' ? Object.keys(this._guaranteed_queue)
+		: typeof(names) == typeof('str') ? names.split(/\s+/g) 
+		: names
+
+	var that = this
+	names.forEach(function(name){
+		if(name in that._guaranteed_queue){
+			that._guaranteed_queue[name] = []
+		}
+	})
+
+	return this
+}
+
+
 // Guarantee that every event handler gets every event...
 //
 //	guaranteeEvents('event', emitter)
@@ -28,29 +50,12 @@
 //
 // NOTE: the seen stack might get quite big, this is not recommended for
 // 		long running emitters...
-//
-var guaranteeEvents = 
-module.exports =
-function(names, emitter){
+function guaranteeEvents(names, emitter){
 	names = typeof(names) == typeof('str') ? names.split(/\s+/g) : names
 
 	// add ability to clear the queue...
 	if(emitter.clearGuaranteedQueue == null){
-		emitter.clearGuaranteedQueue = function(names){
-			names = names == '*' ? Object.keys(this._guaranteed_queue)
-				: typeof(names) == typeof('str') ? names.split(/\s+/g) 
-				: names
-
-			var that = this
-			names.forEach(function(name){
-				if(name in that._guaranteed_queue){
-					that._guaranteed_queue[name] = []
-				}
-			})
-
-			return this
-		}
-
+		emitter.clearGuaranteedQueue = clearGuaranteedQueue
 		emitter._guaranteed_queue = {}
 	}
 
@@ -79,6 +84,10 @@ function(names, emitter){
 
 	return emitter
 }
+
+
+// this is the only thing we are exporting...
+module.exports = guaranteeEvents
 
 
 
