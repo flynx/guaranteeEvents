@@ -58,7 +58,8 @@ emitter.emit('event', 'some data')
 
 ```
 
-A real-life use-case:
+A real-life use-case using the excellent [glob](https://github.com/isaacs/node-glob) 
+utility:
 ```javascript
 var glob = require('glob')
 var guaranteeEvents = require('guarantee-events')
